@@ -1,0 +1,96 @@
+---
+title: "Labo4 oef2"
+author: "Ward"
+date: "2017 M11 17"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+## Slide with Bullets
+
+- Zoek coordinaten verschillende departementen
+- Zoek de icons (tip google afbeeldingen)
+- Zoek op google code voor leaflet
+- Copy pasta "de code"" en zet de coordinaten erin
+- Profit!
+
+## Zoek de coordinaten
+
+<http://www.maps.google.be>
+Rechtermuisklik op de plek naar keuze en kies "Wat is hier"
+Onderaan uw scherm ziet u de coordinaten!
+
+## Departmentale afbeeldingen
+
+<https://www.pxl.be/Pub/Over-PXL/Huisstijl/PXL-logos/Logos-departementen.html>
+Rechtermuis klik op het departement naar keuze en kies de optie "Adres van afbeelding kopiëren"
+
+## Leaflet code
+
+<https://github.com/rstudio/leaflet/blob/master/inst/examples/labels.R>
+
+Hier staat ergens code voor 4 punten te plaatsen intrepeer dit en je kan je code schrijven
+
+## profit
+
+  
+
+## Slide with R Output
+
+```{r echo = FALSE, warning = FALSE}
+library(leaflet)
+
+
+EAIcon <- makeIcon(
+  iconUrl = "http://pxl-ea-ict.be/trinity/images/2.png",
+  iconWidth = 80, iconHeight = 50,
+  iconAnchorX = 11, iconAnchorY = 47)
+  
+MADIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_mad.png",
+  iconWidth = 40, iconHeight = 20,
+  iconAnchorX = 0, iconAnchorY = 0)
+BusinessIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_business.png",
+  iconWidth = 70, iconHeight = 20,
+  iconAnchorX = 0, iconAnchorY = 0)
+GeneeskundeIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_healthcare.png",
+  iconWidth = 70, iconHeight = 20,
+  iconAnchorX = 0, iconAnchorY = 0)
+EduIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_education.png",
+  iconWidth = 70, iconHeight = 20,
+  iconAnchorX = 0, iconAnchorY = 0)
+MusicIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_music.png",
+  iconWidth = 60, iconHeight = 20,
+  iconAnchorX = 0, iconAnchorY = 0)
+
+
+
+
+#EA_map <- leaflet() %>% 
+ # leaflet(data = quakes[1:2,]) %>% addTiles() %>%
+  #addMarkers(~long, ~lat, icon = greenLeafIcon)
+EA_map <-  leaflet() %>% addTiles() %>%
+  
+  #setView(lng=5.369726, lat=50.929622, zoom  = 14 )%>%
+  addMarkers(lng=5.384984, lat=50.927781,icon = EAIcon)%>%
+  addMarkers(lng=5.352468, lat=50.939901,icon = MusicIcon)%>%
+  addMarkers(lng=5.344791, lat=50.935136,icon = EduIcon)%>%
+  addMarkers(lng=5.342426, lat=50.927944,icon = GeneeskundeIcon)%>%
+  addMarkers(lng=5.348741, lat=50.938260,icon = BusinessIcon)%>%
+  addMarkers(lng=5.350031, lat=50.937953,icon = MADIcon)
+ 
+EA_map
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
